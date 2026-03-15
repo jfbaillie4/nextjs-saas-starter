@@ -58,6 +58,14 @@ The full component list is at [ui.shadcn.com/docs/components](https://ui.shadcn.
 
 **Icons:** Use `lucide-react`. Browse the full set at [lucide.dev](https://lucide.dev).
 
+## Mobile header
+
+The dashboard layout includes a mobile-only header (`MobileHeader`) that shows a hamburger button and a page title. The title is set per-page using the `<SetMobileTitle title="..." />` component.
+
+**Rule:** Any time a new dashboard page is created or significantly changed, stop and think about the mobile header. The guiding principle is **space efficiency** — the header should surface content the page already has rather than introduce anything new. What works best will vary by page. Always discuss with the user before deciding what goes in the mobile header for a new page.
+
+Use `<SetMobileTitle title="..." />` to set the header content, and apply `hidden md:block` to any page-level element that has been moved up into the header so it isn't shown twice.
+
 ## Key patterns
 
 **Fetching data:** Prefer Server Components (async functions) over client-side fetching. Call `db` directly — no API route needed.
