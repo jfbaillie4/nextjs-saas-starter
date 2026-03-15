@@ -142,9 +142,22 @@ npx shadcn@latest add [component-name]
 1. Push your repo to GitHub
 2. Go to [vercel.com](https://vercel.com) → New Project → Import your repo
 3. Add your environment variables (same as `.env.local`) under **Environment Variables**
+
+> **Important:** `NEXT_PUBLIC_` variables are baked into the JavaScript bundle at **build time**, not injected at runtime. You must add all environment variables **before** the first build runs, otherwise the build will succeed but the app will fail. If you add variables after a build, trigger a fresh rebuild — on the Deployments page, click Redeploy and make sure "Redeploy with existing build cache" is **unchecked**.
+
 4. Deploy
 
 Vercel will automatically redeploy on every push to `main`.
+
+---
+
+## Before you go live with real users
+
+This template uses development Clerk keys (`pk_test_` / `sk_test_`) which are fine for building but should not be used in production. Before launching:
+
+- **Create a separate Clerk production application** — go to [dashboard.clerk.com](https://dashboard.clerk.com), create a new app, and use the `pk_live_` / `sk_live_` keys on Vercel. Clerk requires a custom domain for production apps — generic Vercel subdomains (`.vercel.app`) are not accepted.
+- **Add a custom domain** — set this up in Vercel under your project's Domains settings, then register it in your Clerk production app.
+- **Consider a separate production database** — using the same database locally and in production means local testing can affect real user data. A separate database eliminates this risk.
 
 ---
 
