@@ -54,7 +54,7 @@ npm install
 
 ### 4. Configure environment variables
 
-> **Security warning:** `.env.local.example` is committed to this repo with placeholder values. You **must** copy it to a new file before adding any real secrets. Never put real keys directly into `.env.local.example` — it will be visible to anyone with access to the repository.
+> **Security warning:** `.env.local.example` is committed to this repo with placeholder values. You **must** copy it to a new file before adding any real secrets. Never put real keys directly into `.env.local.example` — it will be visible to anyone with access to the repository. See .gitignore for the git ignore rules for this repository.
 
 Copy the example file and fill in your values:
 
