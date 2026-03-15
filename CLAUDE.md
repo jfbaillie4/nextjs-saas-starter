@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Multi-tenant B2B SaaS starter. See the root `~/CLAUDE.md` for the full stack reference and TypeScript rules.
 
+Initial run procedure for Claude Code: this project is created from a github template. The first time it loads Claude Code should review the full README.md, CLAUDE-SETUP.md and CLAUDE.md and use that context to collaborate with the user to make any updates to the Next Steps as appropriate. IMPORTANT RULE 1: ask the user if they'd like to do this even if they have suggested a different first action via their initial chat, this rule is needed because Claude reviews Claude.md after the first user message not not on initial load. IMPORTANT RULE 2: Once that is done delete this intiial run procedure for Claude Code from CLAUDE.md so it doesn't run on future starts. 
+
 ## Git workflow
 
 Prompt the user to commit and push at these moments:
