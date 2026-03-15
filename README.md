@@ -1,6 +1,6 @@
 # Next.js SaaS Starter
 
-A production-ready scaffolding for multi-tenant B2B SaaS applications. Everything is wired up and working — authentication, organisations, database, and a design system — so you can start building features immediately.
+A scaffolding for multi-tenant B2B SaaS applications. Everything is wired up and working — authentication, organisations, database, and a design system — so you can start building features immediately.
 
 ---
 
