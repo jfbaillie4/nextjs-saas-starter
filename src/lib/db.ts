@@ -1,14 +1,10 @@
 import { PrismaClient } from '@prisma/client'
-import { PrismaAdapter } from '@prisma/adapter-pg'
-import { Pool } from 'pg'
+import { PrismaPg } from '@prisma/adapter-pg'
 
 // In Prisma 7, the client needs an explicit adapter to connect to the database.
 // We use @prisma/adapter-pg which wraps the standard PostgreSQL driver (pg).
-// A Pool manages a group of database connections that are reused across requests,
-// which is more efficient than opening a new connection every time.
 function createPrismaClient(): PrismaClient {
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL })
-  const adapter = new PrismaAdapter(pool)
+  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
   return new PrismaClient({ adapter })
 }
 
