@@ -1,0 +1,40 @@
+// Prisma schema — defines your database tables as TypeScript-friendly models.
+// After changing this file, run `npx prisma migrate dev` to apply changes.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// An Organisation represents a tenant — one company using your SaaS product.
+model Organisation {
+  id        String   @id @default(cuid())
+  clerkOrgId String  @unique  // Links to the Clerk Organisation ID
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members   Member[]
+}
+
+// A Member joins a User to an Organisation with a role.
+// This is the standard pattern for multi-tenant access control.
+model Member {
+  id             String       @id @default(cuid())
+  clerkUserId    String       // Links to the Clerk User ID
+  role           Role         @default(MEMBER)
+  organisation   Organisation @relation(fields: [organisationId], references: [id])
+  organisationId String
+  createdAt      DateTime     @default(now())
+
+  @@unique([clerkUserId, organisationId]) // A user can only belong to an org once
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  MEMBER
+}
