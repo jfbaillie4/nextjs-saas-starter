@@ -54,13 +54,15 @@ npm install
 
 ### 4. Configure environment variables
 
-Copy the example env file and fill in your values:
+> **Security warning:** `.env.local.example` is committed to this repo with placeholder values. You **must** copy it to a new file before adding any real secrets. Never put real keys directly into `.env.local.example` — it will be visible to anyone with access to the repository.
+
+Copy the example file and fill in your values:
 
 ```bash
 cp .env.local.example .env.local
 ```
 
-Open `.env.local` and replace the placeholder values with your Clerk keys and database connection string.
+Open `.env.local` and replace the placeholder values with your Clerk keys and database connection string. The `.env.local` file is gitignored and will never be committed.
 
 ### 5. Run database migrations
 
