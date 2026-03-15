@@ -9,7 +9,7 @@ This project is designed to be used with [Claude Code](https://claude.ai/code) �
 Claude Code reads instructions from `CLAUDE.md` files. It loads them in order from the most general to the most specific:
 
 1. `~/CLAUDE.md` — your **root** file, loaded for every project on your machine. This is where you describe yourself as a developer and set global rules.
-2. `<project>/CLAUDE.md` — the **project** file, loaded only for that project. This is where project-specific patterns, commands, and conventions live.
+2. `<project>/CLAUDE.md` — the **project** file, loaded only for that project. This is where project-specific patterns, commands, and conventions live. This repo already has a starter CLAUDE.md set up for you at the project level. 
 
 The two files work together. Your root file sets the defaults; the project file adds or overrides for the specific codebase.
 
